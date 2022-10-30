@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', 'ContactController@index');
+Route::get('/index', [ContactController::class, 'index']);
+Route::get('csv/export', [ContactController::class, 'csvExport'])->name('contact.csv.export');
